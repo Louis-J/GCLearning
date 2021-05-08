@@ -14,20 +14,6 @@ class Rigion {
 public:
     Rigion(const size_t size): rigion(new u8[size]), cap(size), index(0) {}
     ~Rigion() {delete[] rigion;}
-    // void *Alloc(const size_t size) {
-    //     void *ret = (void *)(rigion+index);
-    //     index += size;
-    //     if(index > cap)
-    //         throw bad_alloc();
-    //     return ret;
-    // }
-    // static void *Alloc(Rigion &r, const size_t size) {
-    //     void *ret = (void *)(r.rigion+r.index);
-    //     r.index += size;
-    //     if(r.index > r.cap)
-    //         throw bad_alloc();
-    //     return ret;
-    // }
     static void *Alloc(Rigion *r, const size_t size) {
         void *ret = (void *)(r->rigion+r->index);
         r->index += size;
@@ -42,6 +28,7 @@ class Avl {
         int level;
         int num;
         Node *l, *r;
+        // char haha
         Node *LL() {
             Node *ret = l;
             l = ret->r;
